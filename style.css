@@ -132,9 +132,12 @@ section {
 
 /* Hero */
 .hero {
+  min-height: calc(100vh - 73px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  padding-top: 100px;
-  padding-bottom: 100px;
 }
 
 .badge {
@@ -191,6 +194,7 @@ section {
 .hero-buttons {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 16px;
   flex-wrap: wrap;
 }
@@ -200,16 +204,45 @@ section {
   border-radius: 10px;
   text-decoration: none;
   font-weight: 600;
-  transition: transform 0.15s ease, opacity 0.15s ease;
+  transition: transform 0.15s ease, opacity 0.15s ease, border-color 0.15s ease, background 0.15s ease;
   display: inline-block;
 }
 
 .btn:hover { transform: translateY(-2px); }
 
+.btn-plain {
+  background: transparent;
+  color: var(--text);
+  border: none;
+  padding: 14px 4px;
+}
+
+.btn-plain:hover { color: var(--accent); }
+
+.btn-box {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-box i {
+  color: var(--accent);
+  margin-right: 6px;
+  font-size: 0.9em;
+}
+
+.btn-box:hover { border-color: var(--accent); }
+
 .btn-outline {
   background: transparent;
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
 }
 
 .btn-filled {
@@ -237,10 +270,24 @@ section {
   font-size: 1.1rem;
 }
 
+.card h3 i {
+  color: var(--accent);
+  margin-right: 10px;
+  width: 20px;
+  text-align: center;
+}
+
 .card p { color: var(--text-muted); }
 
 .card .degree { color: var(--text); font-weight: 700; margin-top: 4px; }
 .card .uni { color: var(--accent); margin-bottom: 12px; }
+
+.company i {
+  color: var(--text-muted);
+  margin-right: 8px;
+  width: 16px;
+  text-align: center;
+}
 
 .pill {
   background: var(--card);
@@ -459,6 +506,7 @@ section {
 
   .hero-buttons { flex-direction: column; width: 100%; }
   .btn { width: 100%; text-align: center; }
+  .btn-plain { padding: 14px 4px; }
 
   .badge { font-size: 0.75rem; padding: 6px 14px; }
 
